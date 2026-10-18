@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import CartDrawer from './components/CartDrawer.jsx'
+import WhatsAppButton from './components/WhatsAppButton.jsx'
 import Home from './pages/Home.jsx'
 import Shop from './pages/Shop.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
@@ -32,6 +33,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppButton />
       <CartDrawer />
     </div>
   )
