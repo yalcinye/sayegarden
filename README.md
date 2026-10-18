@@ -26,7 +26,7 @@ Sepet `localStorage`'da tutulur; sağdan açılan bir çekmece (drawer) de vard�
 
 ## Notlar
 
-- Görseller `picsum.photos` üzerinden **rastgele placeholder**'dır. `src/data/products.js` içindeki `img()` fonksiyonunu kendi görsellerinle değiştir.
+- Görseller Unsplash'ten seçilmiş **çiçek fotoğraflarıdır** (Unsplash Lisansı, ücretsiz kullanım). Her görsel `src/data/products.js` içindeki `photos` tablosunda sabit bir fotoğrafa bağlı; kendi görsellerine geçmek için bu tabloyu veya `img()` fonksiyonunu değiştir.
 - Ürün, yorum ve SSS verileri `src/data/products.js` içinde mock olarak durur; backend'e bağlarken buradan API çağrısına geçebilirsin.
 - Ödeme akışı demo amaçlıdır, gerçek ödeme alınmaz.
 - SPA olduğu için deploy ederken tüm route'ları `index.html`'e yönlendir (Netlify `_redirects`, Vercel `rewrites`, Azure Static Web Apps `navigationFallback`).

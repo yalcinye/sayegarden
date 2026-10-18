@@ -25,7 +25,7 @@ export default function Home() {
           <div className="mt-8 flex items-center gap-3"><Stars rating={4.8} /><span className="text-sm text-ink/60">2.400+ mutlu bitki ebeveyni</span></div>
         </div>
         <div className="relative">
-          <img src={img('hero', 900, 1100)} alt="Saksıda yeşil bir iç mekân bitkisi" className="aspect-[4/5] w-full rounded-[2rem] bg-sand object-cover" />
+          <img src={img('hero', 900, 1100)} alt="Rengârenk çiçekler" className="aspect-[4/5] w-full rounded-[2rem] bg-sand object-cover" />
           <div className="absolute -bottom-5 -left-3 rounded-2xl bg-cream p-4 shadow-xl sm:-left-6">
             <p className="flex items-center gap-2 text-sm font-medium text-moss"><Drop width={18} height={18} /> Hazne doluluğu</p>
             <div className="mt-2 h-2 w-40 overflow-hidden rounded-full bg-sand"><div className="h-full w-3/4 bg-moss" /></div>
@@ -60,7 +60,7 @@ export default function Home() {
       {/* Nasıl çalışır */}
       <section id="nasil" className="scroll-mt-28 bg-moss text-cream">
         <div className="container-x grid gap-12 py-20 md:grid-cols-[1fr_1.2fr] md:items-center">
-          <img src={img('how', 800, 900)} alt="Saksı detayı" className="aspect-[8/9] w-full rounded-[2rem] bg-sand object-cover" />
+          <img src={img('how', 800, 900)} alt="Çiçek detayı" className="aspect-[8/9] w-full rounded-[2rem] bg-sand object-cover" />
           <div>
             <p className="eyebrow text-sand">Nasıl çalışır</p>
             <h2 className="h-display mt-2 text-4xl sm:text-5xl">Üç adımda yeşil bir ev</h2>
