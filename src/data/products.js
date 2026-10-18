@@ -1,5 +1,5 @@
 // Görseller rastgele placeholder'dır (picsum.photos). Kendi fotoğraflarınla değiştir.
-export const img = (seed, w = 800, h = 1000) => `https://picsum.photos/seed/filiz-${seed}/${w}/${h}`
+export const img = (seed, w = 800, h = 1000) => `https://picsum.photos/seed/saye-${seed}/${w}/${h}`
 
 export const potColors = [
   { id: 'kum', name: 'Kum', hex: '#E3D5BC' },

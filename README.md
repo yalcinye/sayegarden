@@ -1,4 +1,4 @@
-# Filiz Bitki Evi
+# Saye Garden
 
 Kendi kendini sulayan saksılarda iç mekân bitkileri satan örnek bir e-ticaret frontend'i.
 

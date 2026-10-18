@@ -26,7 +26,7 @@ export default function Footer() {
         {[
           { t: 'Alışveriş', l: [['Tüm bitkiler', '/bitkiler'], ['Bakımı kolay', '/bitkiler?kategori=kolay'], ['Büyük bitkiler', '/bitkiler?kategori=buyuk'], ['Hediye', '/bitkiler?kategori=hediye']] },
           { t: 'Yardım', l: [['SSS', '/sss'], ['Kargo & iade', '/sss'], ['Bitki garantisi', '/sss'], ['Sepetim', '/sepet']] },
-          { t: 'Filiz', l: [['Hakkımızda', '/'], ['Bakım rehberi', '/sss'], ['Kurumsal', '/'], ['İletişim', '/sss']] },
+          { t: 'Saye Garden', l: [['Hakkımızda', '/'], ['Bakım rehberi', '/sss'], ['Kurumsal', '/'], ['İletişim', '/sss']] },
         ].map((c) => (
           <div key={c.t}>
             <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-sand">{c.t}</h3>
@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-cream/10">
         <div className="container-x flex flex-col justify-between gap-2 py-6 text-xs text-cream/50 sm:flex-row">
-          <span>© {new Date().getFullYear()} Filiz Bitki Evi. Demo proje.</span>
+          <span>© {new Date().getFullYear()} Saye Garden. Demo proje.</span>
           <span>Görseller placeholder'dır.</span>
         </div>
       </div>

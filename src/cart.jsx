@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { products } from './data/products.js'
 
 const CartContext = createContext(null)
-const KEY = 'filiz-cart'
+const KEY = 'saye-garden-cart'
 
 function load() {
   try { return JSON.parse(localStorage.getItem(KEY)) || [] } catch { return [] }
