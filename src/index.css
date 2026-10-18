@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 @layer components {
-  .container-x { @apply mx-auto max-w-6xl px-4 sm:px-6; }
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-cream; }
-  .btn-primary { @apply btn bg-moss text-cream hover:bg-moss-dark; }
-  .btn-accent { @apply btn bg-clay text-cream hover:bg-clay-dark; }
-  .btn-ghost { @apply btn border border-moss/30 text-moss hover:bg-moss/5; }
-  .eyebrow { @apply text-xs font-medium uppercase tracking-[0.18em] text-clay; }
-  .h-display { @apply font-serif font-normal leading-[1.05] tracking-tight; }
+  .container-x { @apply mx-auto max-w-7xl px-4 sm:px-6; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wide transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2; }
+  .btn-primary { @apply btn bg-moss-dark text-white hover:bg-moss; }
+  .btn-accent { @apply btn bg-moss text-white hover:bg-moss-dark; }
+  .btn-ghost { @apply btn border border-ink text-ink hover:bg-ink hover:text-white; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.18em] text-moss; }
+  .h-display { @apply font-extrabold leading-tight tracking-tight; }
+  .section-title { @apply text-center text-2xl font-black uppercase tracking-tight text-ink sm:text-3xl lg:text-[2.2rem]; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
 }

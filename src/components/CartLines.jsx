@@ -12,7 +12,7 @@ export default function CartLines({ onNavigate }) {
         return (
           <li key={i.key} className="flex gap-4 py-4">
             <Link to={`/bitkiler/${i.product.slug}`} onClick={onNavigate} className="shrink-0">
-              <img src={i.product.image} alt="" className="h-24 w-20 rounded-xl bg-sand object-cover" />
+              <img src={i.product.image} alt="" className="h-24 w-20 rounded-md bg-sand object-cover" />
             </Link>
             <div className="flex flex-1 flex-col">
               <div className="flex justify-between gap-2">

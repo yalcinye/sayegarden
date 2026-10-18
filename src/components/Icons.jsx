@@ -11,3 +11,8 @@ export const Star = ({ filled = true, ...p }) => (<svg {...base} width={14} heig
 export const Plus = (p) => (<svg {...base} width={16} height={16} {...p}><path d="M12 5v14M5 12h14" /></svg>)
 export const Minus = (p) => (<svg {...base} width={16} height={16} {...p}><path d="M5 12h14" /></svg>)
 export const Arrow = (p) => (<svg {...base} width={16} height={16} {...p}><path d="M5 12h14M13 6l6 6-6 6" /></svg>)
+export const Search = (p) => (<svg {...base} {...p}><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>)
+export const User = (p) => (<svg {...base} {...p}><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" /></svg>)
+export const ChevronLeft = (p) => (<svg {...base} {...p}><path d="M15 5l-7 7 7 7" /></svg>)
+export const ChevronRight = (p) => (<svg {...base} {...p}><path d="M9 5l7 7-7 7" /></svg>)
+export const Return = (p) => (<svg {...base} {...p}><path d="M9 14L4 9l5-5" /><path d="M4 9h11a5 5 0 0 1 0 10h-4" /></svg>)

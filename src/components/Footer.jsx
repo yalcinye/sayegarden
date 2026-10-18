@@ -1,45 +1,34 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import Logo from './Logo.jsx'
 
+const cols = [
+  { t: 'Tüm Ürünler', l: [['Tüm bitkiler', '/bitkiler'], ['Bakımı kolay', '/bitkiler?kategori=kolay'], ['Az ışık sever', '/bitkiler?kategori=az-isik'], ['Büyük bitkiler', '/bitkiler?kategori=buyuk'], ['Hediyelik', '/bitkiler?kategori=hediye']] },
+  { t: 'Hesabım', l: [['Sepetim', '/sepet'], ['Siparişim nerede?', '/sss'], ['İade talebi', '/sss']] },
+  { t: 'Yardım', l: [['Sıkça sorulan sorular', '/sss'], ['Kargo & paketleme', '/sss'], ['Bitki garantisi', '/sss'], ['İletişim', '/sss']] },
+  { t: 'Saye Garden', l: [['Hakkımızda', '/'], ['Bakım rehberi', '/sss'], ['Kurumsal siparişler', '/']] },
+]
+
 export default function Footer() {
-  const [email, setEmail] = useState('')
-  const [done, setDone] = useState(false)
   return (
-    <footer className="mt-24 bg-moss-dark text-cream">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <footer className="mt-10 border-t border-ink/5 bg-white">
+      <div className="container-x grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
         <div>
-          <Logo light />
-          <p className="mt-4 max-w-xs text-sm text-cream/70">Kendi kendini sulayan saksılarda, kapına kadar gelen sağlıklı iç mekân bitkileri.</p>
-          <form className="mt-6 flex max-w-sm gap-2" onSubmit={(e) => { e.preventDefault(); if (email) setDone(true) }}>
-            {done ? (
-              <p className="text-sm text-sand">Teşekkürler! İlk bakım rehberin yolda.</p>
-            ) : (
-              <>
-                <label htmlFor="nl" className="sr-only">E-posta</label>
-                <input id="nl" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-posta adresin" className="w-full rounded-full border border-cream/20 bg-transparent px-4 py-2.5 text-sm placeholder:text-cream/40 focus:border-sand focus:outline-none" />
-                <button className="btn-accent shrink-0 px-5 py-2.5">Abone ol</button>
-              </>
-            )}
-          </form>
+          <Logo />
+          <p className="mt-4 max-w-xs text-sm text-ink/60">Kendi kendini sulayan saksılarda, kapına kadar gelen sağlıklı iç mekân bitkileri.</p>
         </div>
-        {[
-          { t: 'Alışveriş', l: [['Tüm bitkiler', '/bitkiler'], ['Bakımı kolay', '/bitkiler?kategori=kolay'], ['Büyük bitkiler', '/bitkiler?kategori=buyuk'], ['Hediye', '/bitkiler?kategori=hediye']] },
-          { t: 'Yardım', l: [['SSS', '/sss'], ['Kargo & iade', '/sss'], ['Bitki garantisi', '/sss'], ['Sepetim', '/sepet']] },
-          { t: 'Saye Garden', l: [['Hakkımızda', '/'], ['Bakım rehberi', '/sss'], ['Kurumsal', '/'], ['İletişim', '/sss']] },
-        ].map((c) => (
+        {cols.map((c) => (
           <div key={c.t}>
-            <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-sand">{c.t}</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-cream/75">
-              {c.l.map(([label, to]) => (<li key={label}><Link to={to} className="hover:text-cream">{label}</Link></li>))}
+            <h3 className="text-sm font-semibold text-ink">{c.t}</h3>
+            <ul className="mt-3 space-y-2 text-sm text-ink/55">
+              {c.l.map(([label, to]) => (<li key={label}><Link to={to} className="hover:text-moss">{label}</Link></li>))}
             </ul>
           </div>
         ))}
       </div>
-      <div className="border-t border-cream/10">
-        <div className="container-x flex flex-col justify-between gap-2 py-6 text-xs text-cream/50 sm:flex-row">
-          <span>© {new Date().getFullYear()} Saye Garden. Demo proje.</span>
-          <span>Görseller placeholder'dır.</span>
+      <div className="bg-moss-dark">
+        <div className="container-x flex flex-col justify-between gap-1 py-4 text-xs text-white/75 sm:flex-row">
+          <span>© {new Date().getFullYear()} Saye Garden. Tüm hakları saklıdır.</span>
+          <span>Demo proje · Görseller Unsplash'ten.</span>
         </div>
       </div>
     </footer>

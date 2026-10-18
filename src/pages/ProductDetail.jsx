@@ -25,10 +25,10 @@ export default function ProductDetail() {
         <nav className="text-xs text-ink/55"><Link to="/" className="hover:text-clay">Ana sayfa</Link> / <Link to="/bitkiler" className="hover:text-clay">Bitkiler</Link> / <span>{p.name}</span></nav>
         <div className="mt-6 grid gap-10 md:grid-cols-2 lg:gap-16">
           <div>
-            <img key={active} src={p.gallery[active]} alt={p.name} className="aspect-[4/5] w-full rounded-[2rem] bg-sand object-cover" />
+            <img key={active} src={p.gallery[active]} alt={p.name} className="aspect-[4/5] w-full rounded-lg bg-sand object-cover" />
             <div className="mt-3 grid grid-cols-3 gap-3">
               {p.gallery.map((g, i) => (
-                <button key={g} onClick={() => setActive(i)} className={`overflow-hidden rounded-xl ring-2 ring-offset-2 ring-offset-cream ${i === active ? 'ring-moss' : 'ring-transparent'}`} aria-label={`Görsel ${i + 1}`}>
+                <button key={g} onClick={() => setActive(i)} className={`overflow-hidden rounded-md ring-2 ring-offset-2 ring-offset-cream ${i === active ? 'ring-moss' : 'ring-transparent'}`} aria-label={`Görsel ${i + 1}`}>
                   <img src={g} alt="" className="aspect-square w-full object-cover" />
                 </button>
               ))}
@@ -36,11 +36,11 @@ export default function ProductDetail() {
           </div>
 
           <div>
-            {p.badge && <span className="rounded-full bg-sand px-3 py-1 text-xs text-moss">{p.badge}</span>}
-            <h1 className="h-display mt-3 text-4xl text-moss sm:text-5xl">{p.name}</h1>
+            {p.badge && <span className="rounded bg-ink px-2.5 py-1 text-xs font-semibold uppercase text-white">{p.badge}</span>}
+            <h1 className="h-display mt-3 text-3xl text-ink sm:text-4xl">{p.name}</h1>
             <p className="mt-1 italic text-ink/55">{p.latin}</p>
             <div className="mt-3 flex items-center gap-4"><Stars rating={p.rating} reviews={p.reviews} /><span className="text-xs text-ink/50">{p.categories.map((c) => categories.find((x) => x.id === c)?.name).join(' · ')}</span></div>
-            <p className="mt-5 text-2xl">{tl(p.price)}</p>
+            <p className="mt-5 text-3xl font-bold text-moss-dark">{tl(p.price)}</p>
             <p className="mt-4 text-ink/75">{p.blurb} Kendi kendini sulayan saksısında, toprağı ve bakım kartıyla hazır gelir.</p>
 
             <div className="mt-8">

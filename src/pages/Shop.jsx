@@ -22,12 +22,12 @@ export default function Shop() {
 
   const title = categories.find((c) => c.id === cat)?.name || 'Tüm Bitkiler'
   const setCat = (id) => (id ? setParams({ kategori: id }) : setParams({}))
-  const chip = (active) => `rounded-full border px-4 py-2 text-sm transition-colors ${active ? 'border-moss bg-moss text-cream' : 'border-moss/25 text-moss hover:border-moss'}`
+  const chip = (active) => `rounded-md border px-4 py-2 text-sm font-medium transition-colors ${active ? 'border-moss bg-moss text-cream' : 'border-moss/25 text-moss hover:border-moss'}`
 
   return (
     <section className="container-x py-12">
       <p className="eyebrow">Mağaza</p>
-      <h1 className="h-display mt-2 text-5xl text-moss">{title}</h1>
+      <h1 className="h-display mt-2 text-4xl uppercase text-ink sm:text-5xl">{title}</h1>
 
       <div className="mt-8 flex flex-wrap gap-2">
         <button className={chip(!cat)} onClick={() => setCat('')}>Tümü</button>
@@ -38,12 +38,12 @@ export default function Shop() {
         <div className="flex flex-wrap items-center gap-2 text-sm">
           <span className="text-ink/60">Boyut:</span>
           {['', ...sizes].map((s) => (
-            <button key={s || 'all'} onClick={() => setSize(s)} className={`rounded-full px-3 py-1 ${size === s ? 'bg-sand text-moss' : 'text-ink/70 hover:text-moss'}`}>{s || 'Hepsi'}</button>
+            <button key={s || 'all'} onClick={() => setSize(s)} className={`rounded-md px-3 py-1 ${size === s ? 'bg-sand text-moss' : 'text-ink/70 hover:text-moss'}`}>{s || 'Hepsi'}</button>
           ))}
         </div>
         <label className="flex items-center gap-2 text-sm">
           <span className="text-ink/60">Sırala:</span>
-          <select value={sort} onChange={(e) => setSort(e.target.value)} className="rounded-full border border-moss/25 bg-transparent px-3 py-1.5 focus:outline-none">
+          <select value={sort} onChange={(e) => setSort(e.target.value)} className="rounded-md border border-ink/20 bg-white px-3 py-1.5 focus:outline-none">
             {Object.entries(sorts).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
           </select>
         </label>

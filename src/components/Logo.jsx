@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 export default function Logo({ light = false }) {
   return (
-    <Link to="/" className={`flex items-center gap-2 ${light ? 'text-cream' : 'text-moss'}`} aria-label="Saye Garden ana sayfa">
-      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="currentColor" />
-        <path d="M16 26V14M16 14c0-5 4-8 9-8 0 5-4 8-9 8zm0 3c0-4-3-7-8-7 0 4 3 7 8 7z" stroke={light ? '#2F4A35' : '#F6F1E7'} strokeWidth="2" fill="none" strokeLinecap="round" />
+    <Link to="/" className={`flex items-center gap-2 ${light ? 'text-white' : 'text-ink'}`} aria-label="Saye Garden ana sayfa">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path d="M16 25V15M16 15c0-4.5 3.5-7 8-7 0 4.5-3.5 7-8 7zm0 2.5c0-3.6-2.8-6-7-6 0 3.6 2.8 6 7 6z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <span className="font-serif text-xl tracking-tight">Saye <span className="italic">Garden</span></span>
+      <span className="text-xl font-bold tracking-tight">saye<span className="font-medium text-moss">garden</span></span>
     </Link>
   )
 }
