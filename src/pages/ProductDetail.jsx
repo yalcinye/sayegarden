@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { products, potColors, categories } from '../data/products.js'
+import { potColors, categories } from '../data/products.js'
+import { useProducts } from '../products.jsx'
 import { useCart, tl, FREE_SHIPPING } from '../cart.jsx'
 import Stars from '../components/Stars.jsx'
 import QtyPicker from '../components/QtyPicker.jsx'
@@ -10,12 +11,14 @@ import NotFound from './NotFound.jsx'
 
 export default function ProductDetail() {
   const { slug } = useParams()
+  const { products, loading } = useProducts()
   const p = products.find((x) => x.slug === slug)
   const { add } = useCart()
   const [pot, setPot] = useState(potColors[0].id)
   const [qty, setQty] = useState(1)
   const [active, setActive] = useState(0)
   const [tab, setTab] = useState('bakim')
+  if (!p && loading) return <section className="container-x py-24 text-center text-ink/50">Yükleniyor…</section>
   if (!p) return <NotFound />
   const related = products.filter((x) => x.id !== p.id && x.categories.some((c) => p.categories.includes(c))).slice(0, 4)
 
@@ -39,7 +42,7 @@ export default function ProductDetail() {
             {p.badge && <span className="rounded bg-ink px-2.5 py-1 text-xs font-semibold uppercase text-white">{p.badge}</span>}
             <h1 className="h-display mt-3 text-3xl text-ink sm:text-4xl">{p.name}</h1>
             <p className="mt-1 italic text-ink/55">{p.latin}</p>
-            <div className="mt-3 flex items-center gap-4"><Stars rating={p.rating} reviews={p.reviews} /><span className="text-xs text-ink/50">{p.categories.map((c) => categories.find((x) => x.id === c)?.name).join(' · ')}</span></div>
+            <div className="mt-3 flex items-center gap-4">{p.reviews > 0 && <Stars rating={p.rating} reviews={p.reviews} />}<span className="text-xs text-ink/50">{p.categories.map((c) => categories.find((x) => x.id === c)?.name).join(' · ')}</span></div>
             <p className="mt-5 text-3xl font-bold text-moss-dark">{tl(p.price)}</p>
             <p className="mt-4 text-ink/75">{p.blurb} Kendi kendini sulayan saksısında, toprağı ve bakım kartıyla hazır gelir.</p>
 

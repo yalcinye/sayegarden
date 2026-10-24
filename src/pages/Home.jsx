@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.jsx'
-import { products, testimonials, categories, faqs, img } from '../data/products.js'
+import { testimonials, categories, faqs, img } from '../data/products.js'
+import { useProducts } from '../products.jsx'
 import { Drop, Truck, Shield, Return, ChevronLeft, ChevronRight, Plus, Minus } from '../components/Icons.jsx'
 import Stars from '../components/Stars.jsx'
 
@@ -90,6 +91,7 @@ function HomeFaq() {
 }
 
 export default function Home() {
+  const { products } = useProducts()
   const best = [...products].sort((a, b) => b.reviews - a.reviews).slice(0, 8)
   const fresh = [...products].reverse().slice(0, 8)
   const [email, setEmail] = useState('')

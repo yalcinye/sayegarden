@@ -22,7 +22,7 @@ export default function ProductCard({ product }) {
       <Link to={`/bitkiler/${product.slug}`} className="mt-2 line-clamp-2 text-sm leading-snug text-ink hover:text-moss">
         {product.name} <span className="text-ink/50">({product.latin})</span>
       </Link>
-      <div className="mt-1"><Stars rating={product.rating} reviews={product.reviews} /></div>
+      {product.reviews > 0 && <div className="mt-1"><Stars rating={product.rating} reviews={product.reviews} /></div>}
       <p className="mt-1.5 text-base font-bold text-ink">{tl(product.price)}</p>
     </article>
   )

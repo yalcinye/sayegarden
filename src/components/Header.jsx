@@ -33,7 +33,7 @@ export default function Header() {
         <div className="container-x flex h-16 items-center gap-4">
           <button className="lg:hidden" onClick={() => setMobile(true)} aria-label="Menüyü aç"><Menu width={24} height={24} /></button>
           <Logo />
-          <nav className="mx-auto hidden items-center gap-6 text-[15px] font-medium lg:flex">
+          <nav className="mx-auto hidden items-center gap-4 whitespace-nowrap text-sm font-medium lg:flex xl:gap-6 xl:text-[15px]">
             {links.map((l) => (
               <NavLink key={l.label} to={l.to} className="text-moss-dark transition-colors hover:text-moss">{l.label}</NavLink>
             ))}

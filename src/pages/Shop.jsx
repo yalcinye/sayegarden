@@ -1,13 +1,15 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.jsx'
-import { products, categories } from '../data/products.js'
+import { categories } from '../data/products.js'
+import { useProducts } from '../products.jsx'
 
 const sizes = ['Küçük', 'Orta', 'Büyük']
 const sorts = { onerilen: 'Önerilen', artan: 'Fiyat: düşükten yükseğe', azalan: 'Fiyat: yüksekten düşüğe', puan: 'En yüksek puan' }
 
 export default function Shop() {
   const [params, setParams] = useSearchParams()
+  const { products, loading } = useProducts()
   const cat = params.get('kategori') || ''
   const [size, setSize] = useState('')
   const [sort, setSort] = useState('onerilen')
@@ -18,7 +20,7 @@ export default function Shop() {
     if (sort === 'azalan') r = [...r].sort((a, b) => b.price - a.price)
     if (sort === 'puan') r = [...r].sort((a, b) => b.rating - a.rating)
     return r
-  }, [cat, size, sort])
+  }, [products, cat, size, sort])
 
   const title = categories.find((c) => c.id === cat)?.name || 'Tüm Bitkiler'
   const setCat = (id) => (id ? setParams({ kategori: id }) : setParams({}))
@@ -50,7 +52,9 @@ export default function Shop() {
       </div>
 
       <p className="mt-6 text-sm text-ink/55">{list.length} bitki</p>
-      {list.length === 0 ? (
+      {loading ? (
+        <p className="py-20 text-center text-ink/50">Bitkiler yükleniyor…</p>
+      ) : list.length === 0 ? (
         <p className="py-20 text-center font-serif text-2xl text-ink/60">Bu filtrelere uyan bitki yok.</p>
       ) : (
         <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3 lg:grid-cols-4">

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { products } from './data/products.js'
+import { useProducts } from './products.jsx'
 
 const CartContext = createContext(null)
 const KEY = 'saye-garden-cart'
@@ -11,6 +11,7 @@ function load() {
 export function CartProvider({ children }) {
   const [items, setItems] = useState(load)
   const [open, setOpen] = useState(false)
+  const { products } = useProducts()
 
   useEffect(() => {
     try { localStorage.setItem(KEY, JSON.stringify(items)) } catch { /* yoksay */ }
@@ -32,7 +33,7 @@ export function CartProvider({ children }) {
 
   const detailed = useMemo(
     () => items.map((i) => ({ ...i, product: products.find((p) => p.id === i.id) })).filter((i) => i.product),
-    [items]
+    [items, products]
   )
   const count = detailed.reduce((s, i) => s + i.qty, 0)
   const subtotal = detailed.reduce((s, i) => s + i.qty * i.product.price, 0)
